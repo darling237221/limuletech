@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LimuleTech</title>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <!-- FontAwesome pour les icônes -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <div class="logo">LimuleTech</div>
+            <div class="nav-links">
+                <a href="#home">Accueil</a>
+                <a href="#services">Services</a>
+                <a href="#contact">Contact</a>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <!-- Section Hero -->
+        <section id="home" class="section">
+            <div class="hero-container">
+                <div class="hero-text">
+                    <h1>LimuleTech</h1>
+                    <p>Solutions digitales modernes pour votre entreprise</p>
+                    <a href="#services" class="btn">Découvrir nos services</a>
+                </div>
+                <div class="cube-container">
+                    <div class="cube">
+                        <div class="face face1"></div>
+                        <div class="face face2"></div>
+                        <div class="face face3"></div>
+                        <div class="face face4"></div>
+                        <div class="face face5"></div>
+                        <div class="face face6"></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section Services -->
+        <section id="services" class="section">
+            <h2>Nos Services</h2>
+            <div class="service-summary">
+                <div class="service-card">
+                    <i class="fas fa-laptop-code fa-3x"></i>
+                    <h3>Développement Web</h3>
+                    <p>Conception de sites web performants et sécurisés.</p>
+                    <a href="#devweb" class="btn btn-outline">En savoir plus</a>
+                </div>
+                <div class="service-card">
+                    <i class="fas fa-pencil-ruler fa-3x"></i>
+                    <h3>UI/UX Design</h3>
+                    <p>Design d'interfaces intuitives et attractives.</p>
+                    <a href="#uiux" class="btn btn-outline">En savoir plus</a>
+                </div>
+                <div class="service-card">
+                    <i class="fas fa-search fa-3x"></i>
+                    <h3>SEO & Marketing</h3>
+                    <p>Optimisation pour moteurs de recherche et visibilité.</p>
+                    <a href="#seo" class="btn btn-outline">En savoir plus</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Service 1: Développement Web -->
+        <section id="devweb" class="section service-page">
+            <h2>Développement Web</h2>
+            <p>Nous créons des sites web et applications web sur mesure :</p>
+            <ul>
+                <li>Sites vitrines et e-commerce</li>
+                <li>Applications web réactives (React, Vue, etc.)</li>
+                <li>Back-end robuste avec Node.js, Python, etc.</li>
+            </ul>
+        </section>
+
+        <!-- Service 2: UI/UX Design -->
+        <section id="uiux" class="section service-page">
+            <h2>UI/UX Design</h2>
+            <p>Expérience utilisateur optimisée pour vos visiteurs :</p>
+            <ul>
+                <li>Wireframing et prototypage</li>
+                <li>Design responsive multi-plateformes</li>
+                <li>Amélioration de l'ergonomie et de l'accessibilité</li>
+            </ul>
+        </section>
+
+        <!-- Service 3: SEO & Marketing -->
+        <section id="seo" class="section service-page">
+            <h2>SEO & Marketing</h2>
+            <p>Stratégies pour augmenter votre visibilité en ligne :</p>
+            <ul>
+                <li>Audit SEO et recommandations</li>
+                <li>Optimisation du contenu et des mots-clés</li>
+                <li>Campagnes publicitaires et marketing digital</li>
+            </ul>
+        </section>
+
+        <!-- Section Contact -->
+        <section id="contact" class="section">
+            <h2>Contactez-nous</h2>
+            <div class="contact-container">
+                <div class="contact-info">
+                    <h3>Infos de contact</h3>
+                    <p><i class="fas fa-map-marker-alt"></i> Yaoundé, Cameroun</p>
+                    <p><i class="fas fa-envelope"></i> limulehinugera@gmail.com</p>
+                    <p><i class="fas fa-phone"></i> +237 123 456 789</p>
+                    <div class="social-icons">
+                        <a href="#"><i class="fab fa-facebook-square"></i></a>
+                        <a href="#"><i class="fab fa-twitter-square"></i></a>
+                        <a href="#"><i class="fab fa-instagram-square"></i></a>
+                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                    </div>
+                </div>
+                <div class="contact-form">
+                    <form id="contact-form" action="https://formspree.io/limulehinugera@gmail.com" method="POST">
+                        <input type="text" name="name" placeholder="Votre nom" required>
+                        <input type="email" name="email" placeholder="Votre email" required>
+                        <input type="text" name="subject" placeholder="Sujet">
+                        <textarea name="message" placeholder="Votre message" rows="5" required></textarea>
+                        <button type="submit" class="btn">Envoyer</button>
+                        <p id="form-alert" class="form-alert"></p>
+                    </form>
+                </div>
+            </div>
+            <div class="map-container">
+                <iframe width="100%" height="300" frameborder="0" scrolling="no" 
+                    src="https://www.openstreetmap.org/export/embed.html?bbox=11.3%2C3.7%2C11.7%2C4.0&amp;layer=mapnik&amp;marker=3.867%2C11.517"
+                    allowfullscreen>
+                </iframe>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 LimuleTech. Tous droits réservés.</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

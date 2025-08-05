@@ -1,0 +1,298 @@
+/* Global Styles */
+:root {
+    --primary: #0a74da;
+    --primary-hover: #065ab8;
+    --text-color: #333;
+    --bg-color: #f5f5f5;
+    --card-bg: #fff;
+    --card-border: #ccc;
+    --header-bg: #fff;
+}
+body {
+    margin: 0;
+    font-family: 'Open Sans', sans-serif;
+    color: var(--text-color);
+    background: var(--bg-color);
+    line-height: 1.6;
+    transition: background-color 0.3s, color 0.3s;
+}
+h1, h2, h3 {
+    margin: 0 0 1rem;
+    font-weight: 600;
+}
+p {
+    margin: 0 0 1rem;
+}
+ul {
+    margin: 0 1rem 1rem 2rem;
+}
+header {
+    background: var(--header-bg);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 2rem;
+}
+.logo {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--primary);
+}
+.nav-links a {
+    margin-left: 1.5rem;
+    text-decoration: none;
+    color: var(--text-color);
+    font-weight: 600;
+    position: relative;
+    padding-bottom: 2px;
+    transition: color 0.3s;
+}
+.nav-links a:hover,
+.nav-links a.active {
+    color: var(--primary);
+}
+main {
+    padding: 2rem;
+}
+.section {
+    display: none; /* géré par script.js */
+    padding: 2rem 0;
+}
+.section h2 {
+    text-align: center;
+    margin-bottom: 2rem;
+    color: var(--primary);
+}
+.btn {
+    display: inline-block;
+    background: var(--primary);
+    color: #fff;
+    padding: 0.8rem 1.5rem;
+    text-decoration: none;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background 0.3s;
+    font-weight: 600;
+}
+.btn:hover {
+    background: var(--primary-hover);
+}
+.btn-outline {
+    background: transparent;
+    border: 2px solid var(--primary);
+    color: var(--primary);
+}
+.btn-outline:hover {
+    background: var(--primary);
+    color: #fff;
+}
+
+/* Hero Section */
+.hero-container {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    min-height: 80vh;
+}
+.hero-text {
+    flex: 1 1 300px;
+    padding: 1rem;
+}
+.hero-text h1 {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+}
+.hero-text p {
+    font-size: 1.2rem;
+    margin-bottom: 1.5rem;
+}
+.cube-container {
+    flex: 1 1 300px;
+    perspective: 800px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 1rem;
+}
+.cube {
+    width: 150px;
+    height: 150px;
+    position: relative;
+    transform-style: preserve-3d;
+    animation: rotateCube 10s infinite linear;
+}
+.cube .face {
+    position: absolute;
+    width: 150px;
+    height: 150px;
+    opacity: 0.85;
+    border: 2px solid #fff;
+}
+.face1 { background: #e74c3c; transform: rotateY(0deg) translateZ(75px); }
+.face2 { background: #3498db; transform: rotateY(90deg) translateZ(75px); }
+.face3 { background: #2ecc71; transform: rotateY(180deg) translateZ(75px); }
+.face4 { background: #f1c40f; transform: rotateY(-90deg) translateZ(75px); }
+.face5 { background: #9b59b6; transform: rotateX(90deg) translateZ(75px); }
+.face6 { background: #e67e22; transform: rotateX(-90deg) translateZ(75px); }
+@keyframes rotateCube {
+    from { transform: rotateX(0deg) rotateY(0deg); }
+    to { transform: rotateX(360deg) rotateY(360deg); }
+}
+
+/* Services Overview */
+.service-summary {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 2rem;
+}
+.service-card {
+    background: var(--card-bg);
+    border: 1px solid var(--card-border);
+    border-radius: 8px;
+    padding: 1.5rem;
+    width: 250px;
+    text-align: center;
+    transition: transform 0.3s;
+}
+.service-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+.service-card i {
+    color: var(--primary);
+    margin-bottom: 1rem;
+}
+.service-card h3 {
+    margin-bottom: 0.5rem;
+}
+
+/* Service Detail Pages */
+.service-page ul {
+    list-style-type: disc;
+}
+.service-page li {
+    margin-bottom: 0.5rem;
+}
+
+/* Contact Section */
+.contact-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+    margin-bottom: 2rem;
+}
+.contact-info {
+    flex: 1 1 300px;
+    padding: 1rem;
+}
+.contact-info p {
+    margin: 0.5rem 0;
+}
+.contact-info i {
+    color: var(--primary);
+    margin-right: 0.5rem;
+}
+.social-icons a {
+    font-size: 1.5rem;
+    margin-right: 0.5rem;
+    color: var(--text-color);
+    transition: color 0.3s;
+}
+.social-icons a:hover {
+    color: var(--primary);
+}
+.contact-form {
+    flex: 1 1 300px;
+    padding: 1rem;
+}
+.contact-form input, .contact-form textarea {
+    width: 100%;
+    padding: 0.7rem;
+    margin-bottom: 1rem;
+    border: 1px solid var(--card-border);
+    border-radius: 4px;
+    resize: vertical;
+    background: #fff;
+}
+.contact-form input:focus, .contact-form textarea:focus {
+    outline: none;
+    border-color: var(--primary);
+}
+#form-alert {
+    margin-top: 0.5rem;
+    font-weight: bold;
+}
+#form-alert.success {
+    color: green;
+}
+#form-alert.error {
+    color: red;
+}
+.map-container iframe {
+    border: none;
+    border: 1px solid var(--card-border);
+    border-radius: 8px;
+}
+
+/* Footer */
+footer {
+    text-align: center;
+    padding: 1rem;
+    font-size: 0.9rem;
+    color: #777;
+    border-top: 1px solid var(--card-border);
+}
+
+/* Responsive */
+@media(max-width: 768px) {
+    .hero-container {
+        flex-direction: column;
+        text-align: center;
+    }
+    .hero-text h1 {
+        font-size: 2.5rem;
+    }
+    .service-summary {
+        flex-direction: column;
+        align-items: center;
+    }
+    .contact-container {
+        flex-direction: column;
+    }
+    .contact-form, .contact-info {
+        width: 100%;
+    }
+}
+
+/* Dark Mode */
+@media (prefers-color-scheme: dark) {
+    :root {
+        --text-color: #eee;
+        --bg-color: #121212;
+        --card-bg: #1e1e1e;
+        --card-border: #333;
+        --header-bg: #1a1a1a;
+    }
+    .nav-links a {
+        color: #eee;
+    }
+    footer {
+        color: #aaa;
+        border-color: #333;
+    }
+    .contact-info i, .service-card i {
+        color: var(--primary);
+    }
+    .social-icons a {
+        color: #eee;
+    }
+}
