@@ -53,6 +53,56 @@ header {
     padding-bottom: 2px;
     transition: color 0.3s;
 }
+
+/* Mobile Nav Toggle */
+.nav-toggle {
+    display: none;
+    background: transparent;
+    border: none;
+    font-size: 1.25rem;
+    color: var(--text-color);
+    cursor: pointer;
+}
+
+/* Hidden by default on mobile - open via .open class */
+.nav-links {
+    display: flex; /* default for desktop */
+}
+
+/* Mobile styles */
+@media (max-width: 768px) {
+    .nav-toggle {
+        display: block;
+    }
+
+    .nav-links {
+        position: absolute;
+        top: 64px;
+        right: 16px;
+        background: var(--header-bg);
+        width: calc(100% - 32px);
+        display: none;
+        flex-direction: column;
+        align-items: center;
+        padding: 1rem 0;
+        border-radius: 8px;
+        box-shadow: 0 6px 12px rgba(0,0,0,0.1);
+    }
+
+    .nav-links.open {
+        display: flex;
+    }
+
+    .nav-links a {
+        margin: 0.5rem 0;
+        font-size: 1.05rem;
+    }
+    .navbar {
+        padding: 0.6rem 1rem;
+    }
+    .logo { font-size: 1.25rem; }
+    main { padding: 1rem; }
+}
 .nav-links a:hover,
 .nav-links a.active {
     color: var(--primary);
@@ -61,7 +111,8 @@ main {
     padding: 2rem;
 }
 .section {
-    display: none; /* géré par script.js */
+    /* Keep sections visible if JS is disabled. script.js will manage visibility on load */
+    display: block;
     padding: 2rem 0;
 }
 .section h2 {
@@ -104,8 +155,8 @@ main {
 }
 .hero-text {
     flex: 1 1 300px;
-    padding: 1rem;
-}
+        width: 150px;
+        height: 150px;
 .hero-text h1 {
     font-size: 3rem;
     margin-bottom: 1rem;
@@ -210,6 +261,15 @@ main {
 .social-icons a:hover {
     color: var(--primary);
 }
+
+/* Visually hidden for screen readers */
+.sr-only {
+    position: absolute !important;
+    height: 1px; width: 1px;
+    overflow: hidden;
+    clip: rect(1px, 1px, 1px, 1px);
+    white-space: nowrap;
+}
 .contact-form {
     flex: 1 1 300px;
     padding: 1rem;
@@ -249,6 +309,7 @@ footer {
     padding: 1rem;
     font-size: 0.9rem;
     color: #777;
+        .cube { width: 120px; height: 120px; }
     border-top: 1px solid var(--card-border);
 }
 

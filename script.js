@@ -1,5 +1,4 @@
-// Toggle menu mobile const navToggle = document.getElementById('nav-toggle'); const navMenu = document.getElementById('nav-menu'); navToggle.addEventListener('click', () => { navMenu.classList.toggle('open'); }); ...
-// Navigation SPA basée sur les hash links
+// Mobile menu toggle & SPA navigation
 function showSection(id) {
     // Masquer toutes les sections
     document.querySelectorAll('.section').forEach(sec => {
@@ -9,6 +8,15 @@ function showSection(id) {
     const target = document.querySelector(id);
     if (target) {
         target.style.display = 'block';
+        // Update nav active state
+        document.querySelectorAll('.nav-links a').forEach(a => {
+            const href = a.getAttribute('href');
+            if (href === id) {
+                a.classList.add('active');
+            } else {
+                a.classList.remove('active');
+            }
+        });
     }
 }
 
@@ -23,10 +31,35 @@ window.addEventListener('DOMContentLoaded', () => {
         showSection(window.location.hash);
     });
 
+    // Mobile nav toggle
+    const navToggle = document.getElementById('nav-toggle');
+    const navMenu = document.getElementById('nav-menu');
+    if (navToggle && navMenu) {
+        navToggle.addEventListener('click', () => {
+            const isOpen = navMenu.classList.toggle('open');
+            navToggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+        });
+
+        // Close menu when a nav link is clicked
+        navMenu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
+            navMenu.classList.remove('open');
+            navToggle.setAttribute('aria-expanded', 'false');
+        }));
+
+        // Allow Esc to close menu
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && navMenu.classList.contains('open')) {
+                navMenu.classList.remove('open');
+                navToggle.setAttribute('aria-expanded', 'false');
+            }
+        });
+    }
+
     // Gestion du formulaire de contact via Formspree (AJAX)
     const form = document.getElementById('contact-form');
     const formAlert = document.getElementById('form-alert');
-    form.addEventListener('submit', function (e) {
+    if (form) {
+        form.addEventListener('submit', function (e) {
         e.preventDefault();
         formAlert.textContent = '';
         formAlert.classList.remove('success', 'error');
@@ -56,5 +89,6 @@ window.addEventListener('DOMContentLoaded', () => {
             formAlert.textContent = "Oups ! Un problème est survenu.";
             formAlert.classList.add('error');
         });
-    });
+        });
+    }
 });
